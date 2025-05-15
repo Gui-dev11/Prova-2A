@@ -58,10 +58,6 @@ namespace Prova_2A
             Write("Diretor do filme: ");
             filme.setDiretor(ReadLine());
 
-            // dados locação
-            Clear();
-            WriteLine("Cadastro de locação:");
-            WriteLine();
 
             // usa os objetos já preenchidos
             //locacao.setClienteLocador(cliente);
@@ -69,6 +65,7 @@ namespace Prova_2A
 
 
             Clear();
+            // dados locação
             WriteLine("Cadastro de locação: ");
             WriteLine();
 
