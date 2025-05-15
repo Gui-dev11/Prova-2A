@@ -5,67 +5,69 @@ namespace Prova_2A
     {
         static void Main(string[] args)
         {
-            Locacao locacao = new Locacao();   
+            Locacao locacao = new Locacao();
             Filme filme = new Filme();
             Cliente cliente = new Cliente();
             Endereco endereco = new Endereco();
 
-
-            //cadastro cliente
-            WriteLine("Cadastro cliente: ");
+            // cadastro cliente
+            WriteLine("Cadastro cliente:");
             WriteLine();
             Write("Nome completo: ");
             cliente.setNomeCompleto(ReadLine());
 
-            Write("cpf: ");
+            Write("CPF: ");
             cliente.setCpf(ReadLine());
 
-            Write("telefone: (ex: +55 69 1234-5678)");
+            Write("Telefone (ex: +55 69 1234-5678): ");
             cliente.setTelefone(ReadLine());
 
-            Write("data nascimento(dd/MM/yyyy):");
+            Write("Data de nascimento (dd/MM/yyyy): ");
             cliente.setdataNascimento(DateTime.Parse(ReadLine()));
 
-            WriteLine("Endereço cliente: ");
-            Write("cidade: ");
+            WriteLine("Endereço cliente:");
+            Write("Cidade: ");
             endereco.setCidade(ReadLine());
-            Write("bairro: ");
-            endereco.setBairro(ReadLine()); 
-            Write("cep: ");
+            Write("Bairro: ");
+            endereco.setBairro(ReadLine());
+            Write("CEP: ");
             endereco.setCep(ReadLine());
-            Write("numero: ");
-            endereco.setNumero(ReadLine()); 
-            Write("logradouro: ");
+            Write("Número: ");
+            endereco.setNumero(ReadLine());
+            Write("Logradouro: ");
             endereco.setLogradouro(ReadLine());
 
             cliente.setEndereco(endereco);
 
-
-            //dados filme
+            // dados filme
             Clear();
-            WriteLine("Cadastro filme: ");
+            WriteLine("Cadastro filme:");
             WriteLine();
-            Write("Titulo: ");
+            Write("Título: ");
             filme.setTitulo(ReadLine());
 
-            Write("Genero: ");
-            filme.setGenero(ReadLine());   
+            Write("Gênero: ");
+            filme.setGenero(ReadLine());
 
-            Write("Ano de lançamento(ex: 2009): ");
+            Write("Ano de lançamento (ex: 2009): ");
             filme.setanoLancamento(int.Parse(ReadLine()));
 
-
-            Write("Duração do filme: (somente numeros)");
+            Write("Duração do filme (somente números): ");
             filme.setduracaoMinutos(int.Parse(ReadLine()));
-
 
             Write("Diretor do filme: ");
             filme.setDiretor(ReadLine());
 
+            // dados locação
+            Clear();
+            WriteLine("Cadastro de locação:");
+            WriteLine();
+
+            // usa os objetos já preenchidos
+            //locacao.setClienteLocador(cliente);
+            //locacao.setFilmeAlugado(filme);
 
 
-
-            //dados locação
             Clear();
             WriteLine("Cadastro de locação: ");
             WriteLine();
@@ -75,49 +77,50 @@ namespace Prova_2A
             Write("Nome completo: ");
             cliente.setNomeCompleto(ReadLine());
 
-            Write("cpf: ");
+            Write("CPF: ");
             cliente.setCpf(ReadLine());
 
-            Write("telefone: (ex: +55 69 1234-5678)");
+            Write("Telefone (ex: +55 69 1234-5678): ");
             cliente.setTelefone(ReadLine());
 
-            Write("data nascimento(dd/MM/yyyy):");
+            Write("Data de nascimento (dd/MM/yyyy): ");
             cliente.setdataNascimento(DateTime.Parse(ReadLine()));
 
-            WriteLine("Endereço cliente: ");
-            Write("cidade: ");
+            WriteLine("Endereço cliente:");
+            Write("Cidade: ");
             endereco.setCidade(ReadLine());
-            Write("bairro: ");
+            Write("Bairro: ");
             endereco.setBairro(ReadLine());
-            Write("cep: ");
+            Write("CEP: ");
             endereco.setCep(ReadLine());
-            Write("numero: ");
+            Write("Número: ");
             endereco.setNumero(ReadLine());
-            Write("logradouro: ");
+            Write("Logradouro: ");
             endereco.setLogradouro(ReadLine());
-
             cliente.setEndereco(endereco);
 
-            locacao.setClienteLocador(cliente);
-
             //dados locação Filme
+            Clear();
+            WriteLine("Cadastro de locação: ");
+            WriteLine();
             WriteLine("Filme: ");
-            Write("Titulo: ");
+            Write("Título: ");
             filme.setTitulo(ReadLine());
 
-            Write("Genero: ");
+            Write("Gênero: ");
             filme.setGenero(ReadLine());
 
-            Write("Ano de lançamento: ");
+            Write("Ano de lançamento (ex: 2009): ");
             filme.setanoLancamento(int.Parse(ReadLine()));
 
-            Write("Duração do filme: (somente numeros)");
+            Write("Duração do filme (somente números): ");
             filme.setduracaoMinutos(int.Parse(ReadLine()));
 
             Write("Diretor do filme: ");
             filme.setDiretor(ReadLine());
 
             locacao.setFilmeAlugado(filme);
+            locacao.setClienteLocador(cliente);
 
 
             //dados locação Data locação e devolução prevista e valor cobrado
@@ -125,63 +128,68 @@ namespace Prova_2A
             Write("Data de locação (ex: 12/02/2000): ");
             locacao.setDataLocacao(DateTime.Parse(ReadLine()));
             Write("Data de devolução prevista (ex: 12/02/2000): ");
-            locacao.setDataLocacao(DateTime.Parse(ReadLine()));
-            Write("Valor cobrado pela locação: (ex: 122.00) ");
+            locacao.setDataDevolucaoPrevista(DateTime.Parse(ReadLine()));
+            Write("Valor cobrado pela locação (ex: 122): ");
             locacao.setValorCobrado(double.Parse(ReadLine()));
-            
 
-
-
+            // exibição
             Clear();
-            WriteLine("Dados clinete: ");
+            WriteLine("Dados cliente:");
+            WriteLine();
             WriteLine($"Nome: {cliente.getNomeCompleto()}");
-            WriteLine($"cpf: {cliente.getCpf()}");
-            WriteLine($"Data nascimento: {cliente.getdataNascimento():dd/MM/yyyy}");
-            WriteLine("Endereço: ");
-            WriteLine($" - cidade: {cliente.getEndereco().getCidade()}");
-            WriteLine($" - bairro: {cliente.getEndereco().getBairro()}");
-            WriteLine($" - cep: {cliente.getEndereco().getCep()}");
-            WriteLine($" - logradouro: {cliente.getEndereco().getLogradouro()}");
-            WriteLine($" - numero: {cliente.getEndereco().getNumero()}");
+            WriteLine($"CPF: {cliente.getCpf()}");
+            WriteLine($"Data de nascimento: {cliente.getdataNascimento():dd/MM/yyyy}");
             WriteLine();
+            WriteLine("Endereço:");
+            WriteLine($" - Cidade: {cliente.getEndereco().getCidade()}");
+            WriteLine($" - Bairro: {cliente.getEndereco().getBairro()}");
+            WriteLine($" - CEP: {cliente.getEndereco().getCep()}");
+            WriteLine($" - Logradouro: {cliente.getEndereco().getLogradouro()}");
+            WriteLine($" - Número: {cliente.getEndereco().getNumero()}");
+            WriteLine("-------------------------------------------");
 
-            WriteLine("Dados filme: ");
-            WriteLine($"Titulo: {filme.getTitulo()}");
-            WriteLine($"Genero: {filme.getGenero()}");
+            WriteLine("Dados filme:");
+            WriteLine();
+            WriteLine($"Título: {filme.getTitulo()}");
+            WriteLine($"Gênero: {filme.getGenero()}");
             WriteLine($"Ano de lançamento: {filme.getanoLancamento()}");
-            WriteLine($"Duração: {filme.getduracaoMinutos()}");
+            WriteLine($"Duração: {filme.getduracaoMinutos()} min");
             WriteLine($"Diretor: {filme.getDiretor()}");
-            WriteLine();
+            WriteLine("-------------------------------------------");
 
-            WriteLine("Dados locação: ");
+            WriteLine("Dados locação:");
             WriteLine();
-            Write("Cliente locador: ");
+            WriteLine("Cliente locador:");
             WriteLine($"Nome: {locacao.getClienteLocador().getNomeCompleto()}");
-            WriteLine($"cpf: {locacao.getClienteLocador().getCpf()}");
-            WriteLine($"Data nascimento: {locacao.getClienteLocador().getdataNascimento():dd/MM/yyyy}");
-            WriteLine("Endereço: ");
-            WriteLine($" - cidade: {locacao.getClienteLocador().getEndereco().getCidade()}");
-            WriteLine($" - bairro: {locacao.getClienteLocador().getEndereco().getBairro()}");
-            WriteLine($" - cep: {locacao.getClienteLocador().getEndereco().getCep()}");
-            WriteLine($" - logradouro: {locacao.getClienteLocador().getEndereco().getLogradouro()}");
-            WriteLine($" - numero: {locacao.getClienteLocador().getEndereco().getNumero()}");
+            WriteLine($"CPF: {locacao.getClienteLocador().getCpf()}");
+            WriteLine($"Data de nascimento: {locacao.getClienteLocador().getdataNascimento():dd/MM/yyyy}");
             WriteLine();
-            WriteLine("Filme alugado: ");
-            WriteLine($"Titulo: {locacao.getFilmeAlugado().getTitulo()}");
-            WriteLine($"Genero: {locacao.getFilmeAlugado().getGenero()}");
+            WriteLine("Endereço:");
+            WriteLine($" - Cidade: {locacao.getClienteLocador().getEndereco().getCidade()}");
+            WriteLine($" - Bairro: {locacao.getClienteLocador().getEndereco().getBairro()}");
+            WriteLine($" - CEP: {locacao.getClienteLocador().getEndereco().getCep()}");
+            WriteLine($" - Logradouro: {locacao.getClienteLocador().getEndereco().getLogradouro()}");
+            WriteLine($" - Número: {locacao.getClienteLocador().getEndereco().getNumero()}");
+            WriteLine();
+            WriteLine("Filme alugado:");
+            WriteLine($"Título: {locacao.getFilmeAlugado().getTitulo()}");
+            WriteLine($"Gênero: {locacao.getFilmeAlugado().getGenero()}");
             WriteLine($"Ano de lançamento: {locacao.getFilmeAlugado().getanoLancamento()}");
-            WriteLine($"Duração: {locacao.getFilmeAlugado().getduracaoMinutos()}");
+            WriteLine($"Duração: {locacao.getFilmeAlugado().getduracaoMinutos()} min");
             WriteLine($"Diretor: {locacao.getFilmeAlugado().getDiretor()}");
+            WriteLine("-------------------------------------------");
             WriteLine();
-            WriteLine("Data de locação: ");
-            WriteLine($"- data: {locacao.getDataLocacao():dd/MM/yyyy}");
-            WriteLine("Data de devolução prevista: ");
-            WriteLine($"- data: {locacao.getDataDevolucaoPrevista():dd/MM/yyyy}");
-            WriteLine("Valor cobrado: ");
-            WriteLine($"- valor: {locacao.getValorCobrado():F2}");
-
-
-
+            WriteLine("Data de locação:");
+            WriteLine();
+            WriteLine($" - Data: {locacao.getDataLocacao():dd/MM/yyyy}");
+            WriteLine();
+            WriteLine("Data de devolução prevista:");
+            WriteLine();
+            WriteLine($" - Data: {locacao.getDataDevolucaoPrevista():dd/MM/yyyy}");
+            WriteLine();
+            WriteLine("Valor cobrado:");
+            WriteLine();
+            WriteLine($" - Valor: R$ {locacao.getValorCobrado():F2}");
         }
     }
 }
